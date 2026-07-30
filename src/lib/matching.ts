@@ -1,4 +1,4 @@
-import type { CharacterEntry, DomainKey, Scores } from './types'
+import type { CharacterEntry, DomainKey, Medium, Matches, Scores } from './types'
 
 const DOMAIN_KEYS: DomainKey[] = ['O', 'C', 'E', 'A', 'N']
 
@@ -23,4 +23,15 @@ export function findClosestCharacter(scores: Scores, roster: CharacterEntry[]): 
   }
 
   return closest
+}
+
+const MEDIUMS: Medium[] = ['book', 'movie', 'tv', 'isu']
+
+export function findMatchesByMedium(scores: Scores, roster: CharacterEntry[]): Matches {
+  const matches = {} as Matches
+  for (const medium of MEDIUMS) {
+    const subset = roster.filter((character) => character.medium === medium)
+    matches[medium] = findClosestCharacter(scores, subset)
+  }
+  return matches
 }
