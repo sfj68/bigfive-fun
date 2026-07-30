@@ -1,0 +1,82 @@
+{
+  "planPath": "docs/superpowers/plans/2026-07-30-bigfive-fun-implementation.md",
+  "tasks": [
+    {
+      "id": 0,
+      "subject": "Task 1: Project scaffold",
+      "status": "pending",
+      "description": "**Goal:** A working Vite + React + TypeScript + Vitest project that builds and has one passing test.\n\n**Files:**\n- Create: package.json, tsconfig.json, vite.config.ts, index.html, src/main.tsx, src/setupTests.ts, src/index.css, src/App.tsx\n- Test: src/App.test.tsx\n- Modify: .gitignore\n\n**Acceptance Criteria:**\n- [ ] npm run build succeeds and produces dist/\n- [ ] npm test passes\n\n**Verify:** npm test -> 1 passed; npm run build -> exits 0\n\n```json:metadata\n{\"files\": [\"package.json\", \"tsconfig.json\", \"vite.config.ts\", \"index.html\", \"src/main.tsx\", \"src/setupTests.ts\", \"src/index.css\", \"src/App.tsx\", \"src/App.test.tsx\", \".gitignore\"], \"verifyCommand\": \"npm test && npm run build\", \"acceptanceCriteria\": [\"npm run build succeeds\", \"npm test passes\"]}\n```"
+    },
+    {
+      "id": 1,
+      "subject": "Task 2: Port question and choice data",
+      "status": "pending",
+      "blockedBy": [0],
+      "description": "**Goal:** The real 120-item IPIP-NEO question bank and 5-point Likert choice set, typed and verified for integrity.\n\n**Files:**\n- Create: src/lib/types.ts, src/data/questions.ts, src/data/choices.ts, THIRD_PARTY_NOTICES.md\n- Test: src/data/questions.test.ts, src/data/choices.test.ts\n\n**Acceptance Criteria:**\n- [ ] 120 items, 24 per domain, unique ids\n- [ ] choices has plus (1-5) and minus (5-1)\n- [ ] Attribution recorded\n\n**Verify:** npm test -> all pass\n\n```json:metadata\n{\"files\": [\"src/lib/types.ts\", \"src/data/questions.ts\", \"src/data/choices.ts\", \"src/data/questions.test.ts\", \"src/data/choices.test.ts\", \"THIRD_PARTY_NOTICES.md\"], \"verifyCommand\": \"npm test\", \"acceptanceCriteria\": [\"120 questions, 24 per domain, unique ids\", \"choices plus/minus correct\", \"attribution recorded\"]}\n```"
+    },
+    {
+      "id": 2,
+      "subject": "Task 3: Scoring logic",
+      "status": "pending",
+      "blockedBy": [1],
+      "description": "**Goal:** Compute per-domain average, 0-100 normalized score, and high/neutral/low classification from answers.\n\n**Files:**\n- Create: src/lib/scoring.ts\n- Test: src/lib/scoring.test.ts\n\n**Acceptance Criteria:**\n- [ ] calculateResult thresholds match source (>3.5 high, <2.5 low)\n- [ ] scoreAnswers returns all five domains even with missing answers\n\n**Verify:** npm test -> scoring tests pass\n\n```json:metadata\n{\"files\": [\"src/lib/scoring.ts\", \"src/lib/scoring.test.ts\"], \"verifyCommand\": \"npm test\", \"acceptanceCriteria\": [\"thresholds correct\", \"all five domains always returned\"]}\n```"
+    },
+    {
+      "id": 3,
+      "subject": "Task 4: Character roster and trait content",
+      "status": "pending",
+      "blockedBy": [1],
+      "description": "**Goal:** 20 curated characters with OCEAN profiles and original blurbs, 10 per-trait notes, 5 trait descriptions.\n\n**Files:**\n- Create: src/data/characters.ts, src/data/traitNotes.ts, src/data/traitInfo.ts\n- Test: src/data/characters.test.ts, src/data/traitNotes.test.ts, src/data/traitInfo.test.ts\n\n**Acceptance Criteria:**\n- [ ] >=20 characters, unique ids, profile values 0-100\n- [ ] Original blurbs, no verbatim quotes\n- [ ] One trait note and one trait info per domain\n\n**Verify:** npm test -> content tests pass\n\n```json:metadata\n{\"files\": [\"src/data/characters.ts\", \"src/data/traitNotes.ts\", \"src/data/traitInfo.ts\", \"src/data/characters.test.ts\", \"src/data/traitNotes.test.ts\", \"src/data/traitInfo.test.ts\"], \"verifyCommand\": \"npm test\", \"acceptanceCriteria\": [\">=20 characters\", \"unique ids\", \"one note/info per domain\"]}\n```"
+    },
+    {
+      "id": 4,
+      "subject": "Task 5: Matching algorithm",
+      "status": "pending",
+      "blockedBy": [1],
+      "description": "**Goal:** Nearest-neighbor match from normalized scores to the character roster.\n\n**Files:**\n- Create: src/lib/matching.ts\n- Test: src/lib/matching.test.ts\n\n**Acceptance Criteria:**\n- [ ] Returns smallest-distance roster entry\n- [ ] Stable tie-break (first roster entry wins)\n- [ ] Throws on empty roster\n\n**Verify:** npm test -> matching tests pass\n\n```json:metadata\n{\"files\": [\"src/lib/matching.ts\", \"src/lib/matching.test.ts\"], \"verifyCommand\": \"npm test\", \"acceptanceCriteria\": [\"nearest match correct\", \"stable tie-break\", \"throws on empty roster\"]}\n```"
+    },
+    {
+      "id": 5,
+      "subject": "Task 6: IntroScreen component",
+      "status": "pending",
+      "blockedBy": [0],
+      "description": "**Goal:** Landing screen that explains the test and starts it.\n\n**Files:**\n- Create: src/components/IntroScreen.tsx\n- Test: src/components/IntroScreen.test.tsx\n\n**Acceptance Criteria:**\n- [ ] Shows question count\n- [ ] Calls onStart when clicked\n\n**Verify:** npm test -> IntroScreen tests pass\n\n```json:metadata\n{\"files\": [\"src/components/IntroScreen.tsx\", \"src/components/IntroScreen.test.tsx\"], \"verifyCommand\": \"npm test\", \"acceptanceCriteria\": [\"shows question count\", \"calls onStart\"]}\n```"
+    },
+    {
+      "id": 6,
+      "subject": "Task 7: QuestionFlow component",
+      "status": "pending",
+      "blockedBy": [1],
+      "description": "**Goal:** Paginated (10/page) question flow collecting one answer per question.\n\n**Files:**\n- Create: src/components/QuestionFlow.tsx\n- Test: src/components/QuestionFlow.test.tsx\n\n**Acceptance Criteria:**\n- [ ] Button disabled until page fully answered\n- [ ] Paginates at 10/page\n- [ ] onComplete receives one answer per question in order\n\n**Verify:** npm test -> QuestionFlow tests pass\n\n```json:metadata\n{\"files\": [\"src/components/QuestionFlow.tsx\", \"src/components/QuestionFlow.test.tsx\"], \"verifyCommand\": \"npm test\", \"acceptanceCriteria\": [\"pagination correct\", \"button disabled until answered\", \"onComplete payload correct\"]}\n```"
+    },
+    {
+      "id": 7,
+      "subject": "Task 8: TraitScoreBar and DustJacketCard components",
+      "status": "pending",
+      "blockedBy": [1],
+      "description": "**Goal:** Real trait score bar and the dust-jacket character card.\n\n**Files:**\n- Create: src/components/TraitScoreBar.tsx, src/components/DustJacketCard.tsx\n- Test: src/components/TraitScoreBar.test.tsx, src/components/DustJacketCard.test.tsx\n\n**Acceptance Criteria:**\n- [ ] TraitScoreBar shows label, fill width, and high/low note (or neutral description)\n- [ ] DustJacketCard shows name, source, blurb\n\n**Verify:** npm test -> both pass\n\n```json:metadata\n{\"files\": [\"src/components/TraitScoreBar.tsx\", \"src/components/DustJacketCard.tsx\", \"src/components/TraitScoreBar.test.tsx\", \"src/components/DustJacketCard.test.tsx\"], \"verifyCommand\": \"npm test\", \"acceptanceCriteria\": [\"TraitScoreBar renders correct note\", \"DustJacketCard renders character\"]}\n```"
+    },
+    {
+      "id": 8,
+      "subject": "Task 9: ResultsScreen component",
+      "status": "pending",
+      "blockedBy": [7],
+      "description": "**Goal:** Compose the dust jacket card and all five trait bars.\n\n**Files:**\n- Create: src/components/ResultsScreen.tsx\n- Test: src/components/ResultsScreen.test.tsx\n\n**Acceptance Criteria:**\n- [ ] Renders character card\n- [ ] Renders one TraitScoreBar per domain in O/C/E/A/N order\n\n**Verify:** npm test -> ResultsScreen tests pass\n\n```json:metadata\n{\"files\": [\"src/components/ResultsScreen.tsx\", \"src/components/ResultsScreen.test.tsx\"], \"verifyCommand\": \"npm test\", \"acceptanceCriteria\": [\"renders character card\", \"renders all five trait bars\"]}\n```"
+    },
+    {
+      "id": 9,
+      "subject": "Task 10: Wire the full app together",
+      "status": "pending",
+      "blockedBy": [2, 3, 4, 5, 6, 8],
+      "description": "**Goal:** App.tsx drives the real intro -> quiz -> results flow with real data.\n\n**Files:**\n- Modify: src/App.tsx, src/App.test.tsx\n\n**Acceptance Criteria:**\n- [ ] Start moves intro -> quiz\n- [ ] Completing all 120 questions computes scores, finds match, shows results\n- [ ] Works with real (non-fixture) data\n\n**Verify:** npm test -> full App integration test passes\n\n```json:metadata\n{\"files\": [\"src/App.tsx\", \"src/App.test.tsx\"], \"verifyCommand\": \"npm test\", \"acceptanceCriteria\": [\"intro to quiz transition\", \"full 120-question flow reaches results\"]}\n```"
+    },
+    {
+      "id": 10,
+      "subject": "Task 11: Styling, attribution, and final verification",
+      "status": "pending",
+      "blockedBy": [9],
+      "description": "**Goal:** Apply approved dust-jacket styling, finish docs, confirm build/tests are clean end to end.\n\n**Files:**\n- Modify: src/index.css\n- Create: README.md\n\n**Acceptance Criteria:**\n- [ ] Dust jacket styling matches approved design\n- [ ] npm test and npm run build both succeed\n- [ ] npm run dev serves a working app (manual check)\n\n**Verify:** npm test && npm run build -> both succeed\n\n```json:metadata\n{\"files\": [\"src/index.css\", \"README.md\"], \"verifyCommand\": \"npm test && npm run build\", \"acceptanceCriteria\": [\"styling applied\", \"build and tests pass\", \"manual dev check\"]}\n```"
+    }
+  ],
+  "lastUpdated": "2026-07-30T00:00:00Z"
+}
