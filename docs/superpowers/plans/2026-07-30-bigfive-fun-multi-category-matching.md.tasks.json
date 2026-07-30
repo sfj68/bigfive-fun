@@ -1,12 +1,12 @@
 {
   "planPath": "docs/superpowers/plans/2026-07-30-bigfive-fun-multi-category-matching.md",
   "tasks": [
-    { "id": 0, "subject": "Task 1: Add Medium type and medium field", "status": "pending" },
-    { "id": 1, "subject": "Task 2: Replace character roster with 75-entry version", "status": "pending", "blockedBy": [0] },
-    { "id": 2, "subject": "Task 3: Add findMatchesByMedium", "status": "pending", "blockedBy": [1] },
-    { "id": 3, "subject": "Task 4: Update ResultsScreen for four labeled matches", "status": "pending", "blockedBy": [2] },
-    { "id": 4, "subject": "Task 5: Wire App.tsx to matches object", "status": "pending", "blockedBy": [3] },
-    { "id": 5, "subject": "Task 6: Final verification", "status": "pending", "blockedBy": [4] }
+    { "id": 0, "subject": "Task 1: Add Medium type and medium field", "status": "completed" },
+    { "id": 1, "subject": "Task 2: Replace character roster with 75-entry version", "status": "completed" },
+    { "id": 2, "subject": "Task 3: Add findMatchesByMedium", "status": "completed" },
+    { "id": 3, "subject": "Task 4: Update ResultsScreen for four labeled matches", "status": "completed" },
+    { "id": 4, "subject": "Task 5: Wire App.tsx to matches object", "status": "completed" },
+    { "id": 5, "subject": "Task 6: Final verification", "status": "completed" }
   ],
   "lastUpdated": "2026-07-30T00:00:00Z"
 }
