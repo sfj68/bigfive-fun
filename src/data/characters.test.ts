@@ -2,8 +2,16 @@ import { describe, it, expect } from 'vitest'
 import characters from './characters'
 
 describe('characters data', () => {
-  it('has at least 20 characters', () => {
-    expect(characters.length).toBeGreaterThanOrEqual(20)
+  it('has exactly 75 characters', () => {
+    expect(characters).toHaveLength(75)
+  })
+
+  it('has 18 book, 18 movie, 18 tv, and 21 isu characters', () => {
+    const counts: Record<string, number> = {}
+    for (const c of characters) {
+      counts[c.medium] = (counts[c.medium] ?? 0) + 1
+    }
+    expect(counts).toEqual({ book: 18, movie: 18, tv: 18, isu: 21 })
   })
 
   it('has unique ids', () => {
