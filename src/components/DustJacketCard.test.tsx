@@ -7,6 +7,7 @@ const character: CharacterEntry = {
   id: 'test-character',
   name: 'Test Character',
   source: 'Test Source',
+  medium: 'book',
   blurb: 'An original blurb about the test character.',
   profile: { O: 50, C: 50, E: 50, A: 50, N: 50 },
 }
