@@ -14,7 +14,7 @@ describe('App', () => {
     expect(screen.getByRole('heading', { name: 'bigfive-fun' })).toBeInTheDocument()
   })
 
-  it('walks through the full quiz to a results screen', () => {
+  it('walks through the full quiz to a results screen with all four category matches', () => {
     render(<App />)
 
     fireEvent.click(screen.getByRole('button', { name: /start the test/i }))
@@ -26,6 +26,9 @@ describe('App', () => {
       fireEvent.click(screen.getByRole('button', { name: buttonName }))
     }
 
-    expect(screen.getByText('About this character')).toBeInTheDocument()
+    expect(screen.getByText('Book Match')).toBeInTheDocument()
+    expect(screen.getByText('Movie Match')).toBeInTheDocument()
+    expect(screen.getByText('TV Match')).toBeInTheDocument()
+    expect(screen.getByText('ISU Connection')).toBeInTheDocument()
   })
 })
