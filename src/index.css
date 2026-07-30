@@ -134,3 +134,24 @@ body {
   color: #444;
   margin: 0;
 }
+
+.matches {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.match-label {
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #6b5b3a;
+  margin: 0 0 6px;
+}
+
+@media (min-width: 700px) {
+  .matches {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
