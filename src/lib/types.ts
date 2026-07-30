@@ -40,10 +40,13 @@ export interface CharacterProfile {
   N: number
 }
 
+export type Medium = 'book' | 'movie' | 'tv' | 'isu'
+
 export interface CharacterEntry {
   id: string
   name: string
   source: string
+  medium: Medium
   profile: CharacterProfile
   blurb: string
 }
@@ -59,3 +62,5 @@ export interface TraitNote {
   high: string
   low: string
 }
+
+export type Matches = Record<Medium, CharacterEntry>
