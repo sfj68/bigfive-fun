@@ -14,3 +14,123 @@ body {
   margin: 0 auto;
   padding: 24px;
 }
+
+.intro h1,
+.quiz h1 {
+  font-family: Georgia, serif;
+}
+
+.intro button,
+.quiz button {
+  font-size: 1rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  background: #3a2f1a;
+  color: #f4ecd8;
+  cursor: pointer;
+}
+
+.intro button:disabled,
+.quiz button:disabled {
+  background: #b8a888;
+  cursor: not-allowed;
+}
+
+.progress {
+  font-size: 0.85rem;
+  color: #6b5b3a;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.question {
+  border: none;
+  padding: 16px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.question legend {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.question label {
+  display: block;
+  margin: 4px 0;
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.dust-jacket {
+  background: #3a2f1a;
+  color: #f4ecd8;
+  border: 1px solid #6b5b3a;
+  border-radius: 4px;
+  padding: 24px;
+  font-family: Georgia, serif;
+}
+
+.dust-jacket-label {
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  text-align: center;
+  color: #c9b896;
+  margin: 0 0 12px;
+}
+
+.dust-jacket-name {
+  text-align: center;
+  margin: 0 0 4px;
+}
+
+.dust-jacket-source {
+  text-align: center;
+  font-style: italic;
+  color: #c9b896;
+  margin: 0 0 16px;
+}
+
+.dust-jacket-blurb {
+  line-height: 1.6;
+}
+
+.trait-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.trait-bar-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+}
+
+.trait-bar-result {
+  text-transform: capitalize;
+  color: #6b5b3a;
+}
+
+.trait-bar-track {
+  background: #eee;
+  border-radius: 4px;
+  height: 8px;
+  margin: 6px 0;
+  overflow: hidden;
+}
+
+.trait-bar-fill {
+  background: #3a2f1a;
+  height: 100%;
+}
+
+.trait-bar-note {
+  font-size: 0.9rem;
+  color: #444;
+  margin: 0;
+}
