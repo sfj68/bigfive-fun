@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import ThemeToggle from './components/ThemeToggle'
 import IntroScreen from './components/IntroScreen'
 import QuestionFlow from './components/QuestionFlow'
 import ResultsScreen from './components/ResultsScreen'
@@ -33,6 +34,9 @@ function App() {
 
   return (
     <div className="app">
+      <div className="app-header">
+        <ThemeToggle />
+      </div>
       {stage === 'intro' && (
         <IntroScreen
           questionCount={questions.length}
