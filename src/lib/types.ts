@@ -63,4 +63,12 @@ export interface TraitNote {
   low: string
 }
 
+export interface TraitExplainer {
+  domain: DomainKey
+  label: string
+  description: string
+  highSummary: string
+  lowSummary: string
+}
+
 export type Matches = Record<Medium, CharacterEntry>

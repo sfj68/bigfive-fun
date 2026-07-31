@@ -7,6 +7,7 @@ import choices from './data/choices'
 import characters from './data/characters'
 import traitInfo from './data/traitInfo'
 import traitNotes from './data/traitNotes'
+import traitExplainers from './data/traitExplainers'
 import { scoreAnswers } from './lib/scoring'
 import { findMatchesByMedium } from './lib/matching'
 import type { Answer, Matches, Scores } from './lib/types'
@@ -29,7 +30,11 @@ function App() {
   return (
     <div className="app">
       {stage === 'intro' && (
-        <IntroScreen questionCount={questions.length} traitInfos={traitInfo} onStart={() => setStage('quiz')} />
+        <IntroScreen
+          questionCount={questions.length}
+          traitExplainers={traitExplainers}
+          onStart={() => setStage('quiz')}
+        />
       )}
       {stage === 'quiz' && <QuestionFlow questions={questions} choices={choices} onComplete={handleComplete} />}
       {stage === 'results' && scores && matches && (

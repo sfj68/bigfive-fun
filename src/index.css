@@ -94,10 +94,44 @@ body {
 }
 
 .trait-preview-description {
-  margin: 0;
+  margin: 0 0 10px;
   font-size: 0.9rem;
   color: var(--body-text);
   line-height: 1.4;
+}
+
+.trait-preview-poles {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.trait-preview-pole {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--body-text);
+  line-height: 1.4;
+}
+
+.trait-preview-pole-tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  padding: 2px 6px;
+  margin-right: 6px;
+}
+
+.trait-preview-pole-tag-high {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+.trait-preview-pole-tag-low {
+  background: #eee2c5;
+  color: var(--body-text);
 }
 
 .progress {

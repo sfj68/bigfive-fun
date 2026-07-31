@@ -1,12 +1,12 @@
-import type { TraitInfo } from '../lib/types'
+import type { TraitExplainer } from '../lib/types'
 
 interface IntroScreenProps {
   questionCount: number
-  traitInfos: TraitInfo[]
+  traitExplainers: TraitExplainer[]
   onStart: () => void
 }
 
-function IntroScreen({ questionCount, traitInfos, onStart }: IntroScreenProps) {
+function IntroScreen({ questionCount, traitExplainers, onStart }: IntroScreenProps) {
   return (
     <div className="intro">
       <h1>bigfive-fun</h1>
@@ -15,12 +15,26 @@ function IntroScreen({ questionCount, traitInfos, onStart }: IntroScreenProps) {
         you&rsquo;ll get your real Big Five trait scores — plus the fictional character (and real ISU
         connection) you match closest to.
       </p>
+      <p>
+        The test measures five independent dimensions of personality — here&rsquo;s what each one
+        actually means before you start:
+      </p>
 
       <div className="trait-preview">
-        {traitInfos.map((info) => (
-          <div className="trait-preview-item" key={info.domain}>
-            <p className="trait-preview-label">{info.label}</p>
-            <p className="trait-preview-description">{info.description}</p>
+        {traitExplainers.map((explainer) => (
+          <div className="trait-preview-item" key={explainer.domain}>
+            <p className="trait-preview-label">{explainer.label}</p>
+            <p className="trait-preview-description">{explainer.description}</p>
+            <div className="trait-preview-poles">
+              <p className="trait-preview-pole">
+                <span className="trait-preview-pole-tag trait-preview-pole-tag-high">Higher</span>
+                {explainer.highSummary}
+              </p>
+              <p className="trait-preview-pole">
+                <span className="trait-preview-pole-tag trait-preview-pole-tag-low">Lower</span>
+                {explainer.lowSummary}
+              </p>
+            </div>
           </div>
         ))}
       </div>
