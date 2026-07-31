@@ -6,6 +6,8 @@ This project ports data and logic from [bigfive-web](https://github.com/rubynor/
 - `src/data/questions.ts` — ported from `packages/questions/src/data/en/questions.ts`
 - `src/data/choices.ts` — ported from `packages/questions/src/data/en/choices.ts`
 - `src/lib/scoring.ts` — adapted from `packages/score/src/index.ts`
+- `src/data/facetInfo.ts` — adapted from the facet descriptions in `packages/results/src/data/en/*.ts`
+  (titles and text lightly reworded for tone and length; domain and facet numbering unchanged)
 
 ## bigfive-web license
 

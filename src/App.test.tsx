@@ -30,5 +30,10 @@ describe('App', () => {
     expect(screen.getByRole('tab', { name: 'Movie' })).toBeInTheDocument()
     expect(screen.getByRole('tab', { name: 'TV' })).toBeInTheDocument()
     expect(screen.getByRole('tab', { name: 'ISU' })).toBeInTheDocument()
+
+    const toggles = screen.getAllByRole('button', { name: /show the six sub-traits/i })
+    expect(toggles).toHaveLength(5)
+    fireEvent.click(toggles[0])
+    expect(screen.getByText('Imagination')).toBeInTheDocument()
   })
 })

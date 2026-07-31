@@ -47,8 +47,8 @@ describe('QuestionFlow', () => {
 
     fireEvent.click(button)
     expect(onComplete).toHaveBeenCalledWith([
-      { domain: 'O', score: 5 },
-      { domain: 'O', score: 1 },
+      { domain: 'O', facet: 1, score: 5 },
+      { domain: 'O', facet: 1, score: 1 },
     ])
   })
 

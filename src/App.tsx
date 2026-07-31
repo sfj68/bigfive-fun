@@ -8,21 +8,25 @@ import characters from './data/characters'
 import traitInfo from './data/traitInfo'
 import traitNotes from './data/traitNotes'
 import traitExplainers from './data/traitExplainers'
-import { scoreAnswers } from './lib/scoring'
+import facetInfo from './data/facetInfo'
+import { scoreAnswers, scoreFacets } from './lib/scoring'
 import { findMatchesByMedium } from './lib/matching'
-import type { Answer, Matches, Scores } from './lib/types'
+import type { Answer, FacetScores, Matches, Scores } from './lib/types'
 
 type Stage = 'intro' | 'quiz' | 'results'
 
 function App() {
   const [stage, setStage] = useState<Stage>('intro')
   const [scores, setScores] = useState<Scores | null>(null)
+  const [facetScores, setFacetScores] = useState<FacetScores | null>(null)
   const [matches, setMatches] = useState<Matches | null>(null)
 
   function handleComplete(answers: Answer[]) {
     const computedScores = scoreAnswers(answers)
+    const computedFacetScores = scoreFacets(answers)
     const foundMatches = findMatchesByMedium(computedScores, characters)
     setScores(computedScores)
+    setFacetScores(computedFacetScores)
     setMatches(foundMatches)
     setStage('results')
   }
@@ -37,8 +41,15 @@ function App() {
         />
       )}
       {stage === 'quiz' && <QuestionFlow questions={questions} choices={choices} onComplete={handleComplete} />}
-      {stage === 'results' && scores && matches && (
-        <ResultsScreen scores={scores} matches={matches} traitInfos={traitInfo} traitNotes={traitNotes} />
+      {stage === 'results' && scores && facetScores && matches && (
+        <ResultsScreen
+          scores={scores}
+          matches={matches}
+          traitInfos={traitInfo}
+          traitNotes={traitNotes}
+          facetInfos={facetInfo}
+          facetScores={facetScores}
+        />
       )}
     </div>
   )

@@ -1,4 +1,4 @@
-import type { DomainKey, Matches, Scores, TraitInfo, TraitNote } from '../lib/types'
+import type { DomainKey, FacetInfo, FacetScores, Matches, Scores, TraitInfo, TraitNote } from '../lib/types'
 import TraitScoreBar from './TraitScoreBar'
 import MatchSwitcher from './MatchSwitcher'
 
@@ -9,9 +9,11 @@ interface ResultsScreenProps {
   matches: Matches
   traitInfos: TraitInfo[]
   traitNotes: TraitNote[]
+  facetInfos: FacetInfo[]
+  facetScores: FacetScores
 }
 
-function ResultsScreen({ scores, matches, traitInfos, traitNotes }: ResultsScreenProps) {
+function ResultsScreen({ scores, matches, traitInfos, traitNotes, facetInfos, facetScores }: ResultsScreenProps) {
   return (
     <div className="results">
       <MatchSwitcher matches={matches} />
@@ -22,7 +24,16 @@ function ResultsScreen({ scores, matches, traitInfos, traitNotes }: ResultsScree
           if (!info || !note) {
             throw new Error(`Missing trait content for domain: ${domain}`)
           }
-          return <TraitScoreBar key={domain} info={info} score={scores[domain]} note={note} />
+          return (
+            <TraitScoreBar
+              key={domain}
+              info={info}
+              score={scores[domain]}
+              note={note}
+              facetInfos={facetInfos}
+              facetScores={facetScores}
+            />
+          )
         })}
       </div>
     </div>

@@ -1,7 +1,7 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react'
 import { describe, it, expect } from 'vitest'
 import ResultsScreen from './ResultsScreen'
-import type { CharacterEntry, DomainKey, Matches, Scores, TraitInfo, TraitNote } from '../lib/types'
+import type { CharacterEntry, DomainKey, FacetInfo, FacetScores, Matches, Scores, TraitInfo, TraitNote } from '../lib/types'
 
 const domains: DomainKey[] = ['O', 'C', 'E', 'A', 'N']
 const labels: Record<DomainKey, string> = {
@@ -39,10 +39,20 @@ const matches: Matches = {
   isu: makeCharacter('isu-char', 'ISU Figure', 'isu'),
 }
 
+const facetInfos: FacetInfo[] = [{ domain: 'O', facet: 1, title: 'Imagination', text: 'Imagination text' }]
+const facetScores: FacetScores = { O1: { average: 5, normalized: 100, result: 'high' } }
+
 describe('ResultsScreen', () => {
   it('renders the match switcher tabs, the default match, and all five trait bars', () => {
     render(
-      <ResultsScreen scores={scores} matches={matches} traitInfos={traitInfos} traitNotes={traitNotes} />,
+      <ResultsScreen
+        scores={scores}
+        matches={matches}
+        traitInfos={traitInfos}
+        traitNotes={traitNotes}
+        facetInfos={facetInfos}
+        facetScores={facetScores}
+      />,
     )
 
     expect(screen.getByRole('tab', { name: 'Book' })).toBeInTheDocument()
@@ -54,5 +64,22 @@ describe('ResultsScreen', () => {
     for (const domain of domains) {
       expect(screen.getByText(labels[domain])).toBeInTheDocument()
     }
+  })
+
+  it('drills down into a domain\'s facets when its toggle is clicked', () => {
+    render(
+      <ResultsScreen
+        scores={scores}
+        matches={matches}
+        traitInfos={traitInfos}
+        traitNotes={traitNotes}
+        facetInfos={facetInfos}
+        facetScores={facetScores}
+      />,
+    )
+
+    const toggles = screen.getAllByRole('button', { name: /show the six sub-traits/i })
+    fireEvent.click(toggles[0])
+    expect(screen.getByText('Imagination')).toBeInTheDocument()
   })
 })

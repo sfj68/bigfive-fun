@@ -22,6 +22,7 @@ export interface ChoiceSet {
 export interface Answer {
   domain: DomainKey
   score: number
+  facet?: number
 }
 
 export interface DomainResult {
@@ -31,6 +32,17 @@ export interface DomainResult {
 }
 
 export type Scores = Record<DomainKey, DomainResult>
+
+export interface FacetInfo {
+  domain: DomainKey
+  facet: number
+  title: string
+  text: string
+}
+
+export type FacetResult = DomainResult
+
+export type FacetScores = Record<string, FacetResult>
 
 export interface CharacterProfile {
   O: number

@@ -1,0 +1,186 @@
+import type { FacetInfo } from '../lib/types'
+
+const facetInfo: FacetInfo[] = [
+  {
+    domain: 'O',
+    facet: 1,
+    title: 'Imagination',
+    text: 'To imaginative individuals, the real world is often too plain and ordinary. High scorers on this scale use fantasy as a way of creating a richer, more interesting world. Low scorers are more oriented to facts than fantasy.',
+  },
+  {
+    domain: 'O',
+    facet: 2,
+    title: 'Artistic Interests',
+    text: 'High scorers on this scale love beauty, both in art and in nature. They become easily involved and absorbed in artistic and natural events. They are not necessarily artistically trained nor talented, although many will be. Low scorers lack aesthetic sensitivity and interest in the arts.',
+  },
+  {
+    domain: 'O',
+    facet: 3,
+    title: 'Emotionality',
+    text: 'Persons high on Emotionality have good access to and awareness of their own feelings. Low scorers are less aware of their feelings and tend not to express their emotions openly.',
+  },
+  {
+    domain: 'O',
+    facet: 4,
+    title: 'Adventurousness',
+    text: 'High scorers on Adventurousness are eager to try new activities, travel to foreign lands, and experience different things. They find familiarity and routine boring, and will take a new route home just because it is different. Low scorers tend to feel uncomfortable with change and prefer familiar routines.',
+  },
+  {
+    domain: 'O',
+    facet: 5,
+    title: 'Intellect',
+    text: 'Intellect and artistic interests are the two most important, central aspects of openness to experience. High scorers on Intellect love to play with ideas. They are open-minded to new and unusual ideas, and like to debate intellectual issues. Low scorers prefer dealing with either people or things rather than ideas. Intellect should not be equated with intelligence; it is a style, not an ability.',
+  },
+  {
+    domain: 'O',
+    facet: 6,
+    title: 'Liberalism',
+    text: 'Psychological liberalism refers to a readiness to challenge authority, convention, and traditional values. Psychological conservatives prefer the security and stability brought by conformity to tradition. This is not identical to political affiliation, but it certainly inclines individuals toward certain political parties.',
+  },
+  {
+    domain: 'C',
+    facet: 1,
+    title: 'Self-Efficacy',
+    text: "Self-Efficacy describes confidence in one's ability to accomplish things. High scorers believe they have the drive and self-control necessary for achieving success. Low scorers do not feel effective, and may have a sense that they are not in control of their lives.",
+  },
+  {
+    domain: 'C',
+    facet: 2,
+    title: 'Orderliness',
+    text: 'Persons with high scores on orderliness are well-organized. They like to live according to routines and schedules. They keep lists and make plans. Low scorers tend to be disorganized and scattered.',
+  },
+  {
+    domain: 'C',
+    facet: 3,
+    title: 'Dutifulness',
+    text: "This scale reflects the strength of a person's sense of duty and obligation. Those who score high have a strong sense of moral obligation. Low scorers find contracts, rules, and regulations overly confining, and are likely to be seen as unreliable.",
+  },
+  {
+    domain: 'C',
+    facet: 4,
+    title: 'Achievement-Striving',
+    text: 'Individuals who score high on this scale strive hard to achieve excellence. Their drive to be recognized as successful keeps them on track toward their goals, though extremely high scores may be too single-minded. Low scorers are content to get by with a minimal amount of work.',
+  },
+  {
+    domain: 'C',
+    facet: 5,
+    title: 'Self-Discipline',
+    text: 'Self-discipline, what many people call will-power, refers to the ability to persist at difficult or unpleasant tasks until they are completed. People with low self-discipline procrastinate and show poor follow-through, often failing to complete tasks even when they want to.',
+  },
+  {
+    domain: 'C',
+    facet: 6,
+    title: 'Cautiousness',
+    text: 'Cautiousness describes the disposition to think through possibilities before acting. High scorers take their time when making decisions. Low scorers often say or do the first thing that comes to mind without weighing the alternatives.',
+  },
+  {
+    domain: 'E',
+    facet: 1,
+    title: 'Friendliness',
+    text: 'Friendly people genuinely like other people and openly demonstrate positive feelings toward others. They make friends quickly and find it easy to form close relationships. Low scorers are not necessarily cold, but they do not reach out to others and are perceived as reserved.',
+  },
+  {
+    domain: 'E',
+    facet: 2,
+    title: 'Gregariousness',
+    text: 'Gregarious people find the company of others pleasantly stimulating and rewarding, and enjoy the excitement of crowds. Low scorers tend to feel overwhelmed by large crowds and need more privacy and time to themselves.',
+  },
+  {
+    domain: 'E',
+    facet: 3,
+    title: 'Assertiveness',
+    text: 'High scorers on Assertiveness like to speak out, take charge, and direct the activities of others. They tend to be leaders in groups. Low scorers tend not to talk much and let others control the activities of the group.',
+  },
+  {
+    domain: 'E',
+    facet: 4,
+    title: 'Activity Level',
+    text: 'Active individuals lead fast-paced, busy lives. They move about quickly and energetically, and are involved in many activities. People who score low on this scale follow a slower, more leisurely, relaxed pace.',
+  },
+  {
+    domain: 'E',
+    facet: 5,
+    title: 'Excitement-Seeking',
+    text: 'High scorers on this scale are easily bored without high levels of stimulation. They love bright lights and hustle and bustle, and are likely to take risks and seek thrills. Low scorers prefer calm, quiet settings.',
+  },
+  {
+    domain: 'E',
+    facet: 6,
+    title: 'Cheerfulness',
+    text: 'This scale measures positive mood, not negative emotion. Persons who score high typically experience a range of upbeat feelings, including happiness, enthusiasm, and optimism. Low scorers are not as prone to such energetic high spirits.',
+  },
+  {
+    domain: 'A',
+    facet: 1,
+    title: 'Trust',
+    text: 'A person with high trust assumes that most people are fair, honest, and have good intentions. Those low in trust see others as more self-interested and are more guarded around them.',
+  },
+  {
+    domain: 'A',
+    facet: 2,
+    title: 'Morality',
+    text: 'High scorers on this scale are candid and straightforward when dealing with others. Low scorers tend to be more guarded and less willing to openly reveal everything they think, which is not the same as being unprincipled.',
+  },
+  {
+    domain: 'A',
+    facet: 3,
+    title: 'Altruism',
+    text: 'Altruistic people find helping others genuinely rewarding, and are generally willing to assist those in need. Low scorers do not particularly enjoy helping out, and requests for help can feel like an imposition.',
+  },
+  {
+    domain: 'A',
+    facet: 4,
+    title: 'Cooperation',
+    text: 'Individuals who score high on this scale dislike confrontation, and are willing to compromise or set aside their own preferences to get along with others. Those who score low are more likely to push for what they want.',
+  },
+  {
+    domain: 'A',
+    facet: 5,
+    title: 'Modesty',
+    text: 'High scorers on this scale do not like to claim they are better than other people. Those who are more willing to describe themselves as superior tend to be seen as arrogant by others.',
+  },
+  {
+    domain: 'A',
+    facet: 6,
+    title: 'Sympathy',
+    text: 'People who score high on this scale are tenderhearted and compassionate, and are easily moved by the struggles of others. Low scorers pride themselves on making objective judgments based on reason over sentiment.',
+  },
+  {
+    domain: 'N',
+    facet: 1,
+    title: 'Anxiety',
+    text: 'People high in this trait tend to feel that something unwelcome is about to happen, and often feel tense or on edge. Those low in this trait are generally calm and unbothered by uncertainty.',
+  },
+  {
+    domain: 'N',
+    facet: 2,
+    title: 'Anger',
+    text: "This scale measures how readily a person feels frustrated or resentful when things don't go their way, not whether they act on it. Low scorers are slow to take offense and rarely stay bothered for long.",
+  },
+  {
+    domain: 'N',
+    facet: 3,
+    title: 'Discouragement',
+    text: 'This scale measures how often someone feels low on energy or motivation to get started on things. Low scorers tend to keep their footing and stay engaged even when a day goes badly.',
+  },
+  {
+    domain: 'N',
+    facet: 4,
+    title: 'Self-Consciousness',
+    text: 'This scale reflects how much a person worries about what others think of them. Low scorers rarely feel like they are being watched or judged, and are comfortable in unfamiliar social situations.',
+  },
+  {
+    domain: 'N',
+    facet: 5,
+    title: 'Immoderation',
+    text: 'This scale reflects how easily someone gives in to short-term temptations at the expense of longer-term goals. Low scorers weigh consequences more readily and are less swayed by momentary cravings.',
+  },
+  {
+    domain: 'N',
+    facet: 6,
+    title: 'Vulnerability',
+    text: 'This scale measures how well someone holds up under pressure. Low scorers stay clear-headed and steady when stressed; high scorers find it harder to think straight once the pressure is on.',
+  },
+]
+
+export default facetInfo

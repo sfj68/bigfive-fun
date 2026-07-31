@@ -1,13 +1,18 @@
-import type { DomainResult, TraitInfo, TraitNote } from '../lib/types'
+import { useState } from 'react'
+import type { DomainResult, FacetInfo, FacetScores, TraitInfo, TraitNote } from '../lib/types'
 import TraitIcon from './icons/TraitIcon'
+import FacetBreakdown from './FacetBreakdown'
 
 interface TraitScoreBarProps {
   info: TraitInfo
   score: DomainResult
   note: TraitNote
+  facetInfos: FacetInfo[]
+  facetScores: FacetScores
 }
 
-function TraitScoreBar({ info, score, note }: TraitScoreBarProps) {
+function TraitScoreBar({ info, score, note, facetInfos, facetScores }: TraitScoreBarProps) {
+  const [showFacets, setShowFacets] = useState(false)
   const noteText = score.result === 'neutral' ? info.description : note[score.result]
 
   return (
@@ -23,6 +28,12 @@ function TraitScoreBar({ info, score, note }: TraitScoreBarProps) {
         <div className="trait-bar-fill" style={{ width: `${score.normalized}%` }} />
       </div>
       <p className="trait-bar-note">{noteText}</p>
+      <button type="button" className="facet-toggle" onClick={() => setShowFacets((prev) => !prev)}>
+        {showFacets ? 'Hide the six sub-traits' : 'Show the six sub-traits'}
+      </button>
+      {showFacets && (
+        <FacetBreakdown domain={info.domain} facetInfos={facetInfos} facetScores={facetScores} />
+      )}
     </div>
   )
 }

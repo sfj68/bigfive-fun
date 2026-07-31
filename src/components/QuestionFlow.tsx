@@ -27,6 +27,7 @@ function QuestionFlow({ questions, choices, onComplete }: QuestionFlowProps) {
     if (isLastPage) {
       const finalAnswers: Answer[] = questions.map((q) => ({
         domain: q.domain,
+        facet: q.facet,
         score: answers[q.id],
       }))
       onComplete(finalAnswers)
