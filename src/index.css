@@ -87,8 +87,22 @@ body {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
 }
 
+.trait-preview-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.trait-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: var(--cardinal);
+}
+
 .trait-preview-label {
-  margin: 0 0 4px;
+  margin: 0;
   font-weight: 700;
   color: var(--cardinal);
 }
@@ -176,12 +190,21 @@ body {
 }
 
 .dust-jacket-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
   font-size: 0.75rem;
   letter-spacing: 3px;
   text-transform: uppercase;
-  text-align: center;
   color: var(--gold);
   margin: 0 0 12px;
+}
+
+.dust-jacket-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
 }
 
 .dust-jacket-name {
@@ -213,6 +236,12 @@ body {
   justify-content: space-between;
   font-weight: 600;
   color: var(--ink);
+}
+
+.trait-bar-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .trait-bar-result {
@@ -253,6 +282,10 @@ body {
 
 .match-tab {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 1px;
@@ -264,6 +297,11 @@ body {
   color: var(--cardinal);
   cursor: pointer;
   transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.match-tab-icon {
+  width: 20px;
+  height: 20px;
 }
 
 .match-tab-active {

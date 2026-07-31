@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import type { Matches, Medium } from '../lib/types'
 import DustJacketCard from './DustJacketCard'
+import MediumIcon from './icons/MediumIcon'
 
 const TABS: { medium: Medium; label: string }[] = [
   { medium: 'book', label: 'Book' },
@@ -30,6 +31,7 @@ function MatchSwitcher({ matches }: MatchSwitcherProps) {
             onFocus={() => setActive(medium)}
             onClick={() => setActive(medium)}
           >
+            <MediumIcon medium={medium} className="match-tab-icon" />
             {label}
           </button>
         ))}

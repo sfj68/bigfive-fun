@@ -1,4 +1,5 @@
 import type { DomainResult, TraitInfo, TraitNote } from '../lib/types'
+import TraitIcon from './icons/TraitIcon'
 
 interface TraitScoreBarProps {
   info: TraitInfo
@@ -12,7 +13,10 @@ function TraitScoreBar({ info, score, note }: TraitScoreBarProps) {
   return (
     <div className="trait-bar">
       <div className="trait-bar-header">
-        <span className="trait-bar-label">{info.label}</span>
+        <span className="trait-bar-label">
+          <TraitIcon domain={info.domain} className="trait-icon" />
+          {info.label}
+        </span>
         <span className="trait-bar-result">{score.result}</span>
       </div>
       <div className="trait-bar-track">

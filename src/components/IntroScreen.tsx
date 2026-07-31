@@ -1,4 +1,5 @@
 import type { TraitExplainer } from '../lib/types'
+import TraitIcon from './icons/TraitIcon'
 
 interface IntroScreenProps {
   questionCount: number
@@ -12,18 +13,18 @@ function IntroScreen({ questionCount, traitExplainers, onStart }: IntroScreenPro
       <h1>bigfive-fun</h1>
       <p>
         Answer {questionCount} short statements about yourself. Takes about 10 minutes. At the end
-        you&rsquo;ll get your real Big Five trait scores — plus the fictional character (and real ISU
-        connection) you match closest to.
+        you&rsquo;ll get your real Big Five trait scores, plus the fictional character (and real ISU
+        connection) your results land closest to.
       </p>
-      <p>
-        The test measures five independent dimensions of personality — here&rsquo;s what each one
-        actually means before you start:
-      </p>
+      <p>Big Five tests measure five separate traits. Here&rsquo;s what each one covers before you dive in:</p>
 
       <div className="trait-preview">
         {traitExplainers.map((explainer) => (
           <div className="trait-preview-item" key={explainer.domain}>
-            <p className="trait-preview-label">{explainer.label}</p>
+            <div className="trait-preview-header">
+              <TraitIcon domain={explainer.domain} className="trait-icon" />
+              <p className="trait-preview-label">{explainer.label}</p>
+            </div>
             <p className="trait-preview-description">{explainer.description}</p>
             <div className="trait-preview-poles">
               <p className="trait-preview-pole">
