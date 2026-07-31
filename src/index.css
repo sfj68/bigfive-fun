@@ -1,3 +1,13 @@
+:root {
+  --cardinal: #c8102e;
+  --cardinal-dark: #9c0c24;
+  --gold: #f1be48;
+  --gold-dark: #cf9f2e;
+  --cream: #fdf9f0;
+  --ink: #2b2320;
+  --body-text: #4a4038;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -5,12 +15,12 @@
 body {
   margin: 0;
   font-family: system-ui, -apple-system, sans-serif;
-  background: #faf7f0;
-  color: #222;
+  background: var(--cream);
+  color: var(--ink);
 }
 
 .app {
-  max-width: 720px;
+  max-width: 760px;
   margin: 0 auto;
   padding: 24px;
 }
@@ -18,28 +28,82 @@ body {
 .intro h1,
 .quiz h1 {
   font-family: Georgia, serif;
+  font-size: 2.25rem;
+  color: var(--cardinal);
+  display: inline-block;
+  margin: 0 0 4px;
+  padding-bottom: 8px;
+  border-bottom: 4px solid var(--gold);
+}
+
+.intro p {
+  color: var(--body-text);
+  line-height: 1.6;
 }
 
 .intro button,
 .quiz button {
   font-size: 1rem;
-  padding: 10px 20px;
+  font-weight: 600;
+  padding: 12px 24px;
   border: none;
-  border-radius: 6px;
-  background: #3a2f1a;
-  color: #f4ecd8;
+  border-radius: 8px;
+  background: var(--cardinal);
+  color: #fff;
   cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.intro button:hover,
+.quiz button:hover {
+  background: var(--cardinal-dark);
 }
 
 .intro button:disabled,
 .quiz button:disabled {
-  background: #b8a888;
+  background: #e3d6b0;
+  color: #8a7d61;
   cursor: not-allowed;
+}
+
+.trait-preview {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin: 20px 0 28px;
+}
+
+@media (min-width: 600px) {
+  .trait-preview {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.trait-preview-item {
+  background: #fff;
+  border-left: 4px solid var(--gold);
+  border-radius: 6px;
+  padding: 12px 16px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+.trait-preview-label {
+  margin: 0 0 4px;
+  font-weight: 700;
+  color: var(--cardinal);
+}
+
+.trait-preview-description {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--body-text);
+  line-height: 1.4;
 }
 
 .progress {
   font-size: 0.85rem;
-  color: #6b5b3a;
+  font-weight: 600;
+  color: var(--cardinal-dark);
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -47,17 +111,19 @@ body {
 .question {
   border: none;
   padding: 16px 0;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #eadfc4;
 }
 
 .question legend {
   font-weight: 600;
   margin-bottom: 8px;
+  color: var(--ink);
 }
 
 .question label {
   display: block;
   margin: 4px 0;
+  color: var(--body-text);
 }
 
 .results {
@@ -67,10 +133,10 @@ body {
 }
 
 .dust-jacket {
-  background: #3a2f1a;
-  color: #f4ecd8;
-  border: 1px solid #6b5b3a;
-  border-radius: 4px;
+  background: var(--cardinal);
+  color: #fff;
+  border: 2px solid var(--gold);
+  border-radius: 8px;
   padding: 24px;
   font-family: Georgia, serif;
 }
@@ -78,25 +144,28 @@ body {
 .dust-jacket-label {
   font-size: 0.75rem;
   letter-spacing: 3px;
+  text-transform: uppercase;
   text-align: center;
-  color: #c9b896;
+  color: var(--gold);
   margin: 0 0 12px;
 }
 
 .dust-jacket-name {
   text-align: center;
+  color: #fff;
   margin: 0 0 4px;
 }
 
 .dust-jacket-source {
   text-align: center;
   font-style: italic;
-  color: #c9b896;
+  color: var(--gold);
   margin: 0 0 16px;
 }
 
 .dust-jacket-blurb {
   line-height: 1.6;
+  color: #fdf3e0;
 }
 
 .trait-bars {
@@ -109,15 +178,17 @@ body {
   display: flex;
   justify-content: space-between;
   font-weight: 600;
+  color: var(--ink);
 }
 
 .trait-bar-result {
   text-transform: capitalize;
-  color: #6b5b3a;
+  font-weight: 700;
+  color: var(--gold-dark);
 }
 
 .trait-bar-track {
-  background: #eee;
+  background: #f0e6cf;
   border-radius: 4px;
   height: 8px;
   margin: 6px 0;
@@ -125,13 +196,13 @@ body {
 }
 
 .trait-bar-fill {
-  background: #3a2f1a;
+  background: var(--cardinal);
   height: 100%;
 }
 
 .trait-bar-note {
   font-size: 0.9rem;
-  color: #444;
+  color: var(--body-text);
   margin: 0;
 }
 
@@ -149,18 +220,21 @@ body {
 .match-tab {
   flex: 1;
   font-size: 0.75rem;
+  font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
-  padding: 8px 4px;
-  border: 1px solid #b8a888;
-  border-radius: 6px;
-  background: transparent;
-  color: #6b5b3a;
+  padding: 10px 4px;
+  border: 2px solid var(--cardinal);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--cardinal);
   cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 .match-tab-active {
-  background: #3a2f1a;
-  border-color: #3a2f1a;
-  color: #f4ecd8;
+  background: var(--cardinal);
+  border-color: var(--cardinal);
+  color: #fff;
+  box-shadow: 0 2px 0 var(--gold);
 }

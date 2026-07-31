@@ -28,7 +28,9 @@ function App() {
 
   return (
     <div className="app">
-      {stage === 'intro' && <IntroScreen questionCount={questions.length} onStart={() => setStage('quiz')} />}
+      {stage === 'intro' && (
+        <IntroScreen questionCount={questions.length} traitInfos={traitInfo} onStart={() => setStage('quiz')} />
+      )}
       {stage === 'quiz' && <QuestionFlow questions={questions} choices={choices} onComplete={handleComplete} />}
       {stage === 'results' && scores && matches && (
         <ResultsScreen scores={scores} matches={matches} traitInfos={traitInfo} traitNotes={traitNotes} />
