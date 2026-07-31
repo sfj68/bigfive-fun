@@ -40,6 +40,7 @@ export function findArchetype(scores: Scores, entries: ArchetypeEntry[]): Archet
     wingPhrase: wingEntry.wingPhrase,
     wingTitle: wingEntry.title,
     leadDomain: lead.domain,
+    leadDirection: lead.direction,
     wingDomain: wing.domain,
     code: buildCode(scores),
   }

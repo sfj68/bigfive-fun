@@ -103,6 +103,7 @@ export interface ArchetypeResult {
   wingPhrase: string
   wingTitle: string
   leadDomain: DomainKey
+  leadDirection: Direction
   wingDomain: DomainKey
   code: string
 }

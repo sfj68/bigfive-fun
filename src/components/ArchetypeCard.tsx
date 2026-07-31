@@ -1,4 +1,5 @@
 import type { ArchetypeResult, DomainKey, TraitInfo } from '../lib/types'
+import ArchetypeIllustration from './icons/ArchetypeIllustration'
 
 interface ArchetypeCardProps {
   archetype: ArchetypeResult
@@ -13,6 +14,11 @@ function ArchetypeCard({ archetype, traitInfos }: ArchetypeCardProps) {
   return (
     <div className="archetype">
       <p className="archetype-label">Your type</p>
+      <ArchetypeIllustration
+        domain={archetype.leadDomain}
+        direction={archetype.leadDirection}
+        className="archetype-illustration"
+      />
       <h2 className="archetype-title">{archetype.title}</h2>
       <p className="archetype-wing">{archetype.wingPhrase}</p>
       <p className="archetype-tagline">{archetype.tagline}</p>

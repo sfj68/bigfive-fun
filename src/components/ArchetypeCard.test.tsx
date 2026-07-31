@@ -15,6 +15,7 @@ const archetype: ArchetypeResult = {
   wingPhrase: 'with a live wire underneath',
   wingTitle: 'The Sentinel',
   leadDomain: 'O',
+  leadDirection: 'high',
   wingDomain: 'N',
   code: 'O+ C= E- A+ N-',
 }
@@ -27,6 +28,11 @@ describe('ArchetypeCard', () => {
     expect(screen.getByText('with a live wire underneath')).toBeInTheDocument()
     expect(screen.getByText('Tagline text')).toBeInTheDocument()
     expect(screen.getByText('Description text')).toBeInTheDocument()
+  })
+
+  it('shows the illustration for the leading trait and direction', () => {
+    const { container } = render(<ArchetypeCard archetype={archetype} traitInfos={traitInfos} />)
+    expect(container.querySelector('svg')?.getAttribute('data-archetype')).toBe('O-high')
   })
 
   it('shows the OCEAN code and which traits drove the type', () => {

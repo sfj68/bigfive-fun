@@ -240,6 +240,13 @@ body {
   margin: 0 0 8px;
 }
 
+.archetype-illustration {
+  width: 88px;
+  height: 88px;
+  color: var(--cardinal);
+  margin: 4px 0 6px;
+}
+
 .archetype-title {
   font-family: Georgia, serif;
   font-size: 2rem;

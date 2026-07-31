@@ -59,6 +59,7 @@ const archetype: ArchetypeResult = {
   wingPhrase: 'with steady hands',
   wingTitle: 'The Anchor',
   leadDomain: 'O',
+  leadDirection: 'high',
   wingDomain: 'N',
   code: 'O+ C= E- A+ N-',
 }
