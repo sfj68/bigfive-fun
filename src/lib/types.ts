@@ -84,3 +84,25 @@ export interface TraitExplainer {
 }
 
 export type Matches = Record<Medium, CharacterEntry>
+
+export type Direction = 'high' | 'low'
+
+export interface ArchetypeEntry {
+  domain: DomainKey
+  direction: Direction
+  title: string
+  tagline: string
+  description: string
+  wingPhrase: string
+}
+
+export interface ArchetypeResult {
+  title: string
+  tagline: string
+  description: string
+  wingPhrase: string
+  wingTitle: string
+  leadDomain: DomainKey
+  wingDomain: DomainKey
+  code: string
+}

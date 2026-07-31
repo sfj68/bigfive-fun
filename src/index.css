@@ -223,6 +223,79 @@ body {
   gap: 24px;
 }
 
+.archetype {
+  background: var(--card-bg);
+  border: 2px solid var(--gold);
+  border-radius: 8px;
+  padding: 24px;
+  text-align: center;
+}
+
+.archetype-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  margin: 0 0 8px;
+}
+
+.archetype-title {
+  font-family: Georgia, serif;
+  font-size: 2rem;
+  color: var(--cardinal);
+  margin: 0;
+}
+
+.archetype-wing {
+  font-family: Georgia, serif;
+  font-style: italic;
+  color: var(--body-text);
+  margin: 2px 0 14px;
+}
+
+.archetype-tagline {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0 0 12px;
+}
+
+.archetype-description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--body-text);
+  text-align: left;
+  margin: 0 0 16px;
+}
+
+.archetype-derivation {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--divider);
+}
+
+.archetype-code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #fff;
+  background: var(--cardinal);
+  border-radius: 4px;
+  padding: 4px 10px;
+}
+
+.archetype-derivation-note {
+  font-size: 0.8rem;
+  color: var(--body-text);
+}
+
 .dust-jacket {
   background: var(--cardinal);
   color: #fff;

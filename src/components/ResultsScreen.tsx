@@ -1,21 +1,41 @@
-import type { DomainKey, FacetInfo, FacetScores, Matches, Scores, TraitInfo, TraitNote } from '../lib/types'
+import type {
+  ArchetypeResult,
+  DomainKey,
+  FacetInfo,
+  FacetScores,
+  Matches,
+  Scores,
+  TraitInfo,
+  TraitNote,
+} from '../lib/types'
 import TraitScoreBar from './TraitScoreBar'
 import MatchSwitcher from './MatchSwitcher'
+import ArchetypeCard from './ArchetypeCard'
 
 const DOMAIN_ORDER: DomainKey[] = ['O', 'C', 'E', 'A', 'N']
 
 interface ResultsScreenProps {
   scores: Scores
   matches: Matches
+  archetype: ArchetypeResult
   traitInfos: TraitInfo[]
   traitNotes: TraitNote[]
   facetInfos: FacetInfo[]
   facetScores: FacetScores
 }
 
-function ResultsScreen({ scores, matches, traitInfos, traitNotes, facetInfos, facetScores }: ResultsScreenProps) {
+function ResultsScreen({
+  scores,
+  matches,
+  archetype,
+  traitInfos,
+  traitNotes,
+  facetInfos,
+  facetScores,
+}: ResultsScreenProps) {
   return (
     <div className="results">
+      <ArchetypeCard archetype={archetype} traitInfos={traitInfos} />
       <MatchSwitcher matches={matches} />
       <div className="trait-bars">
         {DOMAIN_ORDER.map((domain) => {

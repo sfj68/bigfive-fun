@@ -26,6 +26,7 @@ describe('App', () => {
       fireEvent.click(screen.getByRole('button', { name: buttonName }))
     }
 
+    expect(screen.getByText('Your type')).toBeInTheDocument()
     expect(screen.getByRole('tab', { name: 'Book' })).toBeInTheDocument()
     expect(screen.getByRole('tab', { name: 'Movie' })).toBeInTheDocument()
     expect(screen.getByRole('tab', { name: 'TV' })).toBeInTheDocument()

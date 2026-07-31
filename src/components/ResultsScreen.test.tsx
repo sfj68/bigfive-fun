@@ -1,7 +1,17 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 import { describe, it, expect } from 'vitest'
 import ResultsScreen from './ResultsScreen'
-import type { CharacterEntry, DomainKey, FacetInfo, FacetScores, Matches, Scores, TraitInfo, TraitNote } from '../lib/types'
+import type {
+  ArchetypeResult,
+  CharacterEntry,
+  DomainKey,
+  FacetInfo,
+  FacetScores,
+  Matches,
+  Scores,
+  TraitInfo,
+  TraitNote,
+} from '../lib/types'
 
 const domains: DomainKey[] = ['O', 'C', 'E', 'A', 'N']
 const labels: Record<DomainKey, string> = {
@@ -42,12 +52,24 @@ const matches: Matches = {
 const facetInfos: FacetInfo[] = [{ domain: 'O', facet: 1, title: 'Imagination', text: 'Imagination text' }]
 const facetScores: FacetScores = { O1: { average: 5, normalized: 100, result: 'high' } }
 
+const archetype: ArchetypeResult = {
+  title: 'The Cartographer',
+  tagline: 'Tagline text',
+  description: 'Archetype description text',
+  wingPhrase: 'with steady hands',
+  wingTitle: 'The Anchor',
+  leadDomain: 'O',
+  wingDomain: 'N',
+  code: 'O+ C= E- A+ N-',
+}
+
 describe('ResultsScreen', () => {
   it('renders the match switcher tabs, the default match, and all five trait bars', () => {
     render(
       <ResultsScreen
         scores={scores}
         matches={matches}
+        archetype={archetype}
         traitInfos={traitInfos}
         traitNotes={traitNotes}
         facetInfos={facetInfos}
@@ -55,6 +77,7 @@ describe('ResultsScreen', () => {
       />,
     )
 
+    expect(screen.getByText('The Cartographer')).toBeInTheDocument()
     expect(screen.getByRole('tab', { name: 'Book' })).toBeInTheDocument()
     expect(screen.getByRole('tab', { name: 'Movie' })).toBeInTheDocument()
     expect(screen.getByRole('tab', { name: 'TV' })).toBeInTheDocument()
@@ -71,6 +94,7 @@ describe('ResultsScreen', () => {
       <ResultsScreen
         scores={scores}
         matches={matches}
+        archetype={archetype}
         traitInfos={traitInfos}
         traitNotes={traitNotes}
         facetInfos={facetInfos}
