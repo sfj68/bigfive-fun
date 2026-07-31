@@ -26,9 +26,9 @@ describe('App', () => {
       fireEvent.click(screen.getByRole('button', { name: buttonName }))
     }
 
-    expect(screen.getByText('Book Match')).toBeInTheDocument()
-    expect(screen.getByText('Movie Match')).toBeInTheDocument()
-    expect(screen.getByText('TV Match')).toBeInTheDocument()
-    expect(screen.getByText('ISU Connection')).toBeInTheDocument()
+    expect(screen.getByRole('tab', { name: 'Book' })).toBeInTheDocument()
+    expect(screen.getByRole('tab', { name: 'Movie' })).toBeInTheDocument()
+    expect(screen.getByRole('tab', { name: 'TV' })).toBeInTheDocument()
+    expect(screen.getByRole('tab', { name: 'ISU' })).toBeInTheDocument()
   })
 })

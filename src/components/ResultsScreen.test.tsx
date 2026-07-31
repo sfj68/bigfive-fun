@@ -40,19 +40,16 @@ const matches: Matches = {
 }
 
 describe('ResultsScreen', () => {
-  it('renders all four category matches, labeled, plus all five trait bars', () => {
+  it('renders the match switcher tabs, the default match, and all five trait bars', () => {
     render(
       <ResultsScreen scores={scores} matches={matches} traitInfos={traitInfos} traitNotes={traitNotes} />,
     )
 
-    expect(screen.getByText('Book Match')).toBeInTheDocument()
+    expect(screen.getByRole('tab', { name: 'Book' })).toBeInTheDocument()
+    expect(screen.getByRole('tab', { name: 'Movie' })).toBeInTheDocument()
+    expect(screen.getByRole('tab', { name: 'TV' })).toBeInTheDocument()
+    expect(screen.getByRole('tab', { name: 'ISU' })).toBeInTheDocument()
     expect(screen.getByText('Book Character')).toBeInTheDocument()
-    expect(screen.getByText('Movie Match')).toBeInTheDocument()
-    expect(screen.getByText('Movie Character')).toBeInTheDocument()
-    expect(screen.getByText('TV Match')).toBeInTheDocument()
-    expect(screen.getByText('TV Character')).toBeInTheDocument()
-    expect(screen.getByText('ISU Connection')).toBeInTheDocument()
-    expect(screen.getByText('ISU Figure')).toBeInTheDocument()
 
     for (const domain of domains) {
       expect(screen.getByText(labels[domain])).toBeInTheDocument()
